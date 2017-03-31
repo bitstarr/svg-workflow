@@ -1,0 +1,84 @@
+/**
+ * 1. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ * 2. Set death proof box-sizing
+ */
+html {
+    -ms-text-size-adjust: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 1 */
+    box-sizing: border-box; /* 1 */
+}
+*, *:before, *:after { box-sizing: inherit; } /* 3 */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, figure { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section,summary { display: block; }
+:focus { outline: 0; }
+html {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    height: 100%;
+    font: 1em/1.4 BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #444;
+    background: #eee;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-repeat: no-repeat;
+}
+
+.main {
+    display: flex;
+    height: 100%;
+    padding: 3em 1em;
+}
+
+.contact {
+    width: 100%;
+    max-width: 30em;
+    margin: auto;
+    padding: 2em;
+    text-align: center;
+    background: #fff;
+    border-radius: .2em;
+    box-shadow: 0 0 3px rgba(0,0,0,.2);
+}
+
+.contact p + p {
+    margin-top: 1em;
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+/*
+ * define basic icon
+ * use font-size for scaling!
+ * @see https://medium.com/@iamryanyu/svg-sprite-workflow-that-works-f5609d4d6144
+ */
+.icon {
+    fill: currentColor;
+    height: 1em;
+    width: 1em;
+    overflow: hidden;
+    vertical-align: -.15em;
+    /* vertical align to deal with the line height of the text */
+}
+
+.icon--blue {
+    color:#07f;
+}
+
+/* check out the logo.svg file */
+.logo {
+    margin-bottom: .5em;
+    font-size: 4em;
+    color: #fc0;
+}
+.logo .meteor {
+    fill: rebeccapurple;
+}

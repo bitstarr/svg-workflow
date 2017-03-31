@@ -1,0 +1,7 @@
+{
+    "name": "svg-workflow",
+    "private": true,
+    "dependencies": {
+        "svgxuse": "latest"
+    }
+}

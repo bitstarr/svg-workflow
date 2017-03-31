@@ -1,0 +1,17 @@
+{
+    "private": true,
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+        "grunt": "*",
+        "bower": "*",
+        "load-grunt-tasks": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-newer": "*",
+        "grunt-svgmin": "*",
+        "grunt-svg-sprite": "*"
+    }
+}

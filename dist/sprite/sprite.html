@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+        <title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+        <style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+ .svg-logo-dims { width: 128px; height: 128px; }
+ .svg-mail-dims { width: 128px; height: 128px; }
+ .svg-phone-dims { width: 128px; height: 128px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+    </head>
+    <body>
+
+    <svg width="0" height="0" style="position:absolute">
+         <symbol viewBox="0 0 128 128" id="logo"><path class="meteor" fill="#07f" d="M122.8 81.17L99.74 67.33a5.786 5.786 0 0 0-5.93 0L76.79 77.54c4.87 1.36 8.46 5.78 8.46 11.07 0 6.37-5.16 11.53-11.53 11.53-2.11 0-4.06-.61-5.76-1.6v9.86c0 2.03 1.06 3.9 2.8 4.94l23.06 13.84a5.786 5.786 0 0 0 5.93 0l23.06-13.84a5.778 5.778 0 0 0 2.8-4.94V86.11a5.797 5.797 0 0 0-2.81-4.94zm-14.5 24.73c-3.19 0-5.76-2.58-5.76-5.76 0-3.19 2.58-5.76 5.76-5.76 3.19 0 5.76 2.58 5.76 5.76.01 3.18-2.57 5.76-5.76 5.76z"/><path d="M2.398 62.968l4.292-7.51 57.058 32.61-4.292 7.51zM57.856 4.296l7.51-4.292L97.97 57.063l-7.51 4.29zM14.561 42.53l4.446-7.409L39.38 47.346l-4.445 7.409zM37.524 16.6l7.41-4.446 12.224 20.374-7.41 4.445zM58.555 62.268l6.117-6.116 12.225 12.226-6.116 6.116z"/></symbol>
+     <symbol viewBox="0 0 128 128" id="mail"><path d="M6.62 24.06c1.84-1.02 3.92-1.66 6.18-1.66h102.4c2.25 0 4.34.64 6.18 1.66L64 59.67 6.62 24.06zm60.75 48.58c-1.03.64-2.2.96-3.37.96s-2.34-.32-3.37-.96L.02 35.03c0 .06-.02.11-.02.17v57.6c0 7.06 5.74 12.8 12.8 12.8h102.4c7.06 0 12.8-5.74 12.8-12.8V35.2c0-.06-.02-.11-.02-.17L67.37 72.64z"/></symbol>
+     <symbol viewBox="0 0 128 128" id="phone"><path d="M70.654 1.46L51.967 19.524l.091.095c-23.353 24.401-24.027 62.792-1.535 88.012l-.096.092 18.044 18.691c1.999 2.062 5.292 2.122 7.353.132l14.96-14.452a5.205 5.205 0 0 0 .129-7.35L76.47 89.787a5.207 5.207 0 0 0-7.353-.131l-7.385 7.139c-16.524-19.006-16.027-47.552 1.155-65.963l7.127 7.387a5.207 5.207 0 0 0 7.35.125L92.32 23.901a5.202 5.202 0 0 0 .132-7.356L78.008 1.588a5.2 5.2 0 0 0-7.354-.128z"/></symbol>
+    </svg>
+
+        <header>
+            <h1>Icon sprite preview</h1>
+        </header>
+        <section>
+
+<!--
+
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+            <ul>
+
+             <li title="logo">
+                    <div class="icon-box">
+
+                        <!-- logo -->
+                        <svg class="svg-logo-dims">
+                            <use xlink:href="#logo"></use>
+                        </svg>
+
+                    </div>
+                    <h2>logo</h2>
+                </li>
+             <li title="mail">
+                    <div class="icon-box">
+
+                        <!-- mail -->
+                        <svg class="svg-mail-dims">
+                            <use xlink:href="#mail"></use>
+                        </svg>
+
+                    </div>
+                    <h2>mail</h2>
+                </li>
+             <li title="phone">
+                    <div class="icon-box">
+
+                        <!-- phone -->
+                        <svg class="svg-phone-dims">
+                            <use xlink:href="#phone"></use>
+                        </svg>
+
+                    </div>
+                    <h2>phone</h2>
+                </li>
+         </ul>
+
+<!--
+====================================================================================================
+-->
+
+                </section>
+        <footer>
+            <p>Use with Shortcodes or Template Functions. Have fun!</p>
+        </footer>
+    </body>
+</html>
