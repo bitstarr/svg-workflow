@@ -34,7 +34,7 @@ Das Icon wird von ``Grunt`` mittels [grunt-svg-sprite](https://github.com/jkphl/
 ``grunt-svg-sprite`` erzeugt auch eine [HTML-Datei](http://svg.sebastianlaube.de/dist/sprite/sprite.html) in der z.B. Redakteure die IDs nachschlagen können. Die Vorlage dazu liegt in ``assets/icons``.
 
 ## Der Code
-````
+````php
 function get_svg_icon( $id, $atts = array() ) {
     // 1. do we have the reuired parameter?
     if ( empty( $id ) ) {
@@ -99,7 +99,7 @@ Wie sich für ein geübtes Auge sofort erkennen lässt, befinden wir uns im Kont
 8. Zum Schluss wird alles zusammengefügt und übergeben.
 
 Verwendet wird das Ganze dann recht simpel:
-````
+````html
     <div class="contact">
         <?php svg_icon( 'phone', array( 'title' => 'Telefon' ) ) ?> 0123 456 78 90
 
@@ -114,7 +114,7 @@ Alternativ geht das auch als WordPress-Shortcode
 ````
 
 Die Ausgabe sieht dann etwa so aus:
-````
+````html
     <svg class="icon" aria-labelledby="icon__title--58de43ac12ead" role="img">
         <title id="icon__title--58de43ac12ead">Telefon</title>
         <use xlink:href="http://foo.bar/wp-content/themes/mytheme/dist/sprite/sprite.svg#phone"></use>
@@ -126,7 +126,7 @@ Moderne Browser unterstützen die Referenzierung einer SVG-Datei via ``xlink:hre
 ## Styling
 Jetzt haben wir zwar die Icons elegant eingebunden, aber sie müssen noch elegant gestylt werden.
 
-````
+````css
 /* 1 */
 .icon {
     fill: currentColor;
