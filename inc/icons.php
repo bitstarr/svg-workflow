@@ -15,14 +15,16 @@ function get_svg_icon( $id, $atts = array() ) {
         return;
     }
 
-    extract( shortcode_atts(
+    $atts = shortcode_atts(
         array(
             'class' => null,
             'title' => null
             // maybe we want to add desc (<desc>) for even more a11y
         ),
         $atts
-    ));
+    );
+    $class = $atts['class'];
+    $title = $atts['title'];
 
     // check if this ID will be in the sprite
     if ( ! file_exists( TEMPLATEPATH . '/dist/icons/' . $id . '.svg' ) ) {
