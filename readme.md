@@ -21,7 +21,6 @@ Dabei verwende ich in meinen Projekten eine Ordnerstruktur wie die Folgende.
 |   +-- less/                   Styling
 +-- dist/                   Build Dateien
 |   +-- css/                    Kompilierte CSS Dateien
-|   +-- icons/                  Optimierte Kopie der Icons (für PHP Check)
 |   +-- img/                    Optimierte Bilder
 |   +-- js/                     JS Dateien und Polyfills
 |   +-- sprite/                 SVG Sprite und Übersicht
@@ -29,9 +28,11 @@ Dabei verwende ich in meinen Projekten eine Ordnerstruktur wie die Folgende.
 
 Für Viele ist es sicher gängige Praxis optimierte und kompilierte Ressourcen in einem ``dist`` Ordner zu lagern und den ``assets`` Ordner nicht auf den Live-Server zu kopieren.
 
-Das Icon wird von ``Grunt`` mittels [grunt-svg-sprite](https://github.com/jkphl/grunt-svg-sprite) ins Sprite integriert und mit [grunt-svgmin](https://github.com/sindresorhus/grunt-svgmin) eine optimierte Kopie in ``dist/icons`` abgelegt. Diese Kopie nutzen wir später in PHP um zu prüfen, ob eine übergebene ID (Icon-Datei-Name) auch wirklich im Sprite zu finden sein wird.
+Das Icon wird von ``Grunt`` mittels [grunt-svg-sprite](https://github.com/jkphl/grunt-svg-sprite) ins Sprite integriert und das Sprite anschließend mit [grunt-svgmin](https://github.com/sindresorhus/grunt-svgmin) optimiert.
 
 ``grunt-svg-sprite`` erzeugt auch eine [HTML-Datei](http://svg.sebastianlaube.de/dist/sprite/sprite.html) in der z.B. Redakteure die IDs nachschlagen können. Die Vorlage dazu liegt in ``assets/icons``.
+
+Außerdem wird an dem selben Ort auch eine PHP-Datei erzeugt, die einen Array enthält. Den nutzen wir um zu prüfen, ob eine übergebene ID (Icon-Datei-Name) auch wirklich im Sprite zu finden sein wird.
 
 ## Der Code
 ````php
@@ -56,7 +57,8 @@ function get_svg_icon( $id, $atts = array() ) {
     ));
 
     // 3. check if this ID will be in the sprite
-    if ( ! file_exists( TEMPLATEPATH . '/dist/icons/' . $id . '.svg' ) ) {
+    require TEMPLATEPATH . '/dist/sprite/sprite.php';
+    if ( ! in_array( $id, $valid_icons ) ) {
         if ( WP_DEBUG == true ) {
             return 'Icon nicht vorhanden.';
         }

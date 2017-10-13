@@ -27,9 +27,10 @@ function get_svg_icon( $id, $atts = array() ) {
     $title = $atts['title'];
 
     // check if this ID will be in the sprite
-    if ( ! file_exists( TEMPLATEPATH . '/dist/icons/' . $id . '.svg' ) ) {
+    require TEMPLATEPATH . '/dist/sprite/sprite.php';
+    if ( ! in_array( $id, $valid_icons ) ) {
         if ( WP_DEBUG == true ) {
-            return 'Icon doesn\'t exist.';
+            return 'Icon nicht vorhanden.';
         }
 
         return;

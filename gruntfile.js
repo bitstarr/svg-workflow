@@ -47,6 +47,9 @@ module.exports = function(grunt) {
                                 // custom example
                                 'html': {
                                     template: '<%=project.icons%>/_icons.html'
+                                },
+                                'php': {
+                                    template: '<%=project.icons%>/_list.html'
                                 }
                             },
                         },
@@ -63,14 +66,6 @@ module.exports = function(grunt) {
                     { removeViewBox: false },
                     { removeUselessStrokeAndFill: false },
                 ]
-            },
-            icons: {
-                files: [{
-                    expand: true,
-                    cwd: '<%=project.icons%>',
-                    src: ['**/*.svg'],
-                    dest: '<%=project.dist.icons%>'
-                }]
             },
             sprite: {
                 options: {
